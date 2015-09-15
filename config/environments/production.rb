@@ -9,6 +9,23 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+  config.action_mailer.default_url_options = { :host => 'facebook69.herokuapp.com' }
+  Rails.application.routes.default_url_options[:host] = 'facebook69.herokuapp.com'
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: ENV["GMAIL_DOMAIN"],
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      password: ENV["GMAIL_PASSWORD"]
+  }
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false

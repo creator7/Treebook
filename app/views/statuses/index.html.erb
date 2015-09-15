@@ -1,22 +1,26 @@
 <div class="page-header">
   <h1>All of the Statuses</h1>
 </div>
-<%= link_to "Post a new status", new_status_path, class: "btn btn-success" %>
+<div class="text-center">
+  <%= link_to "Post a new status", new_status_path, class: "btn btn-success btn-lg" %>
+</div>
 <% @statuses.each do |status| %>
 <div class="status">
   <div class="row">
   <div class="col-xs-7 col-md-1">
-    <%= image_tag status.user.gravatar_url %>
+    <%= image_tag status.user.gravatar_url, alt: "avatar" %>
   </div>
       <div class="col-xs-7 col-md-7">
-      <strong><%= status.user.full_name %></strong>
+      <strong><%= link_to status.user.full_name, profile_path(status.user.profile_name) %></strong>
       <p> <%= status.content %></p>
       <div class="meta">
         <%= link_to time_ago_in_words(status.created_at) + " ago", status %>
-        <span class="admin">
-         |  <%= link_to "Edit", edit_status_path(status) %>  |
-          <%= link_to "Delete", status, method: :delete, data: {confirm: "Are you sure to delete this status?" } %>
-        </span>
+        <% if status.user_id == current_user.id %>
+            <span class="admin">
+             |  <%= link_to "Edit", edit_status_path(status) %>  |
+              <%= link_to "Delete", status, method: :delete, data: {confirm: "Are you sure to delete this status?" } %>
+            </span>
+        <% end %>
         </div>
     </div>
   </div>

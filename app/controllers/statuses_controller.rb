@@ -20,6 +20,7 @@ class StatusesController < ApplicationController
 
   # GET /statuses/1/edit
   def edit
+    @status.should_generate_new_friendly_id?
   end
 
   # POST /statuses
@@ -65,7 +66,7 @@ class StatusesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_status
-      @status = Status.find(params[:id])
+      @status = Status.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
