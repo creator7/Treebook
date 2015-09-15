@@ -22,6 +22,7 @@ gem 'jquery-turbolinks'
 gem 'coffee-script-source', '1.8.0'
 gem 'friendly_id'
 gem 'foreman'
+gem 'yaml_db'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
