@@ -1,46 +1,52 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="text-center">
+  <h2>Settings</h2>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
 
+        <div class="field">
+          <%= f.input :first_name %><br />
+        </div>
+        <div class="field">
+          <%= f.input :last_name %><br />
+        </div>
+        <div class="field">
+          <%= f.input :profile_name %><br />
+        </div>
+        <div class="field">
+          <%= f.input :email %><br />
+        </div>
 
-    <div class="field">
-      <%= f.input :first_name, :input_html => {:style => 'width: 300px'} %><br />
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+          <%= f.input :password, hint: "(Leave blank if you doesnt want to change it)"%>
+        </div>
+
+        <div class="field">
+          <%= f.input :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.input :current_password , hint: "(We want your current password to save these changes)" %>
+        </div>
+
+        <div class="actions">
+          <%= f.button :submit, "Update" %>
+        </div>
+    <% end %>
+    <div style="margin-bottom: 50px">
+      <h3>Cancel my account</h3>
+
+      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+      <%= link_to "Back", :back %>
     </div>
-    <div class="field">
-      <%= f.input :last_name, :input_html => {:style => 'width: 300px'} %><br />
-    </div>
-    <div class="field">
-      <%= f.input :profile_name, :input_html => {:style => 'width: 300px'} %><br />
-    </div>
-      <div class="field">
-        <%= f.input :email, :input_html => {:style => 'width: 350px'} %><br />
-      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.input :password, hint: "(Leave blank if you doesnt want to change it)", :input_html => {:style => 'width: auto'} %>
   </div>
-
-  <div class="field">
-    <%= f.input :password_confirmation, autocomplete: "off", :input_html => {:style => 'width: auto'} %>
-  </div>
-
-  <div class="field">
-    <%= f.input :current_password , hint: "(We want your current password to save these changes)" , :input_html => {:style => 'width: auto'}%>
-  </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-<div style="margin-bottom: 50px">
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
 </div>

@@ -1,11 +1,12 @@
 class StatusesController < ApplicationController
   before_action :set_status, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_action :authenticate_current_user!, only: [:edit, :update, :destroy]
 
   # GET /statuses
   # GET /statuses.json
   def index
-    @statuses = Status.all
+    @statuses = Status.order('created_at DESC').all
   end
 
   # GET /statuses/1
@@ -20,7 +21,7 @@ class StatusesController < ApplicationController
 
   # GET /statuses/1/edit
   def edit
-    @status.should_generate_new_friendly_id?
+      @status.should_generate_new_friendly_id?
   end
 
   # POST /statuses
@@ -73,4 +74,11 @@ class StatusesController < ApplicationController
     def status_params
       params.require(:status).permit(:user_id, :content)
     end
+
+  def authenticate_current_user!
+    if current_user.id != @status.user_id
+      redirect_to 'index'
+      return false
+    end
+  end
 end

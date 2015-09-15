@@ -1,8 +1,10 @@
-<div class="page-header">
-  <h1>All of the Statuses</h1>
+<div class="page-header text-center">
+  <h1>News Feed</h1>
 </div>
 <div class="text-center">
-  <%= link_to "Post a new status", new_status_path, class: "btn btn-success btn-lg" %>
+  <%= link_to new_status_path, class: "btn btn-success btn-lg" do %>
+  <i class="glyphicon glyphicon-envelope">  Post New Status</i>
+      <% end %>
 </div>
 <% @statuses.each do |status| %>
 <div class="status">
