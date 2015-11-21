@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row" id="signup">
   <div class="col-xs-7 col-md-4", style="margin-bottom: 40px">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "well", :style => 'width: 370px'}) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "well", id: "wellmargin", :style => 'width: 370px'}) do |f| %>
         <%= devise_error_messages! %>
 
         <fieldset>
@@ -28,16 +28,16 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit ,"Sign up" %>
+            <%= f.button :submit ,"Sign up", class: 'btn-info hvr-glow' %>
           </div>
         </fieldset>
     <% end %>
 
   </div>
   <div class="col-xs-6 col-md-8">
-    <h1>Sign up now to join us :)</h1></br>
+    <h1 class="text-primary">Sign up now to join us :)</h1></br>
     <h5>Already have an account?</h5>
-    <%= link_to "Log in", login_path, class: "btn btn-primary" %>
+    <%= link_to "Log in", login_path, class: "btn btn-primary hvr-bounce-in" %>
     <div style="margin-top: 10px">
       <%= link_to "Forgot your password?", new_user_password_path %>
     </div>

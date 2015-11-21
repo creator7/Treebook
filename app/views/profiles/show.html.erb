@@ -3,7 +3,7 @@
       <%= image_tag @user.gravatar_url, alt: "avatar" %>
     </div>
     <div class="col-xs-7 col-md-7">
-      <div class="page-header text-capitalize">
+      <div class="page-header text-primary">
         <h1><%= @user.full_name %></h1>
       </div>
     </div>
@@ -16,7 +16,7 @@
 </div>
 <% end %>
     <% else %>
-    <div class="well">
+    <div class="well text-danger">
       <h5>Doesnt have any post to show....</h5>
     </div>
 

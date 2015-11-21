@@ -1,19 +1,19 @@
-<div class="page-header text-center">
+<div id="heading", class="page-header text-center text-primary">
   <h1>News Feed</h1>
 </div>
 <div class="text-center">
-  <%= link_to new_status_path, class: "btn btn-success btn-lg" do %>
-  <i class="glyphicon glyphicon-envelope">  Post New Status</i>
+  <%= link_to new_status_path, id: "newstatus", class: "btn btn-info btn-lg hvr-float-shadow" do %>
+  <i class="glyphicon glyphicon-envelope">     Post Status</i>
       <% end %>
 </div>
 <% @statuses.each do |status| %>
 <div class="status">
   <div class="row">
   <div class="col-xs-7 col-md-1">
-    <%= image_tag status.user.gravatar_url, alt: "avatar" %>
+    <%= link_to "#{image_tag(status.user.gravatar_url, :alt =>  "avatar")}".html_safe, profile_path(status.user.profile_name), class: "hvr-wobble-vertical" %>
   </div>
       <div class="col-xs-7 col-md-7">
-      <strong><%= link_to status.user.full_name, profile_path(status.user.profile_name) %></strong>
+      <strong><%= link_to status.user.full_name, profile_path(status.user.profile_name), class: "hvr-float" %></strong>
       <p> <%= status.content %></p>
       <div class="meta">
         <%= link_to time_ago_in_words(status.created_at) + " ago", status %>

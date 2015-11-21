@@ -5,3 +5,13 @@
 $ ->
   $('.status').hover (event) ->
     $(this).toggleClass("hover")
+#$ ->
+#  $('#newstatus').hover (event) ->
+#    $(this).()
+
+#$ ->
+#  $("#heading").hover (event) ->
+#    $(this).fadeToggle()
+
+$ ->
+  $(":input:visible:enabled:first").focus()

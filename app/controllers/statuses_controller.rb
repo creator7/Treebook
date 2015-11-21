@@ -77,7 +77,7 @@ class StatusesController < ApplicationController
 
   def authenticate_current_user!
     if current_user.id != @status.user_id
-      redirect_to 'index'
+      render file: 'public/422', status:422, format: [:html]
       return false
     end
   end

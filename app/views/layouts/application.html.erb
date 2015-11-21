@@ -10,10 +10,12 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a href="#" class="navbar-brand">Yoo Molvi</a>
-      <ul class="nav pull-left">
-        <li><%= link_to "News Feed", feed_path %></li>
-      </ul>
+      <%= link_to "#{image_tag("background2.png", width: '140', height: '36', alt: 'Yoo Molvi', class: "logo")}".html_safe, feed_path , class: "navbar-brand hvr-wobble-vertical"%>
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav pull-left">
+            <li><%= link_to "News Feed", feed_path %></li>
+        </ul>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
             <li class="dropdown">

@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
   get 'profiles/show'
 
-  devise_for :users
   resources :statuses
   get 'feed', to: 'statuses#index', as: :feed
 
+  Rails.application.routes.draw do
+    devise_for :users, controllers: {
+                         registrations: 'users/registrations'
+                     }
+  end
+  #devise_for :users, :controllers => {:registrations => "users/registrations"}
   devise_scope :user do
     get 'registration', to: 'devise/registrations#new', as: :registration
     get 'login', to: 'devise/sessions#new', as: :login
     get 'logout', to: 'devise/sessions#destroy', as: :logout
     post 'registration.user', to: 'devise/registrations#create'
     put 'registration.user', to: 'devise/registrations#update'
+   # delete 'registration.user', to: 'devise/users/registrations#destroy'
   end
   root to: 'statuses#index'
 

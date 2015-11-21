@@ -16,8 +16,34 @@
 
 body{
     padding-top: 40px;
+    background: #F8FEFE;
 }
 
 .alert{
     margin-top: 20px;
 }
+
+#signin,#signup {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0f9ff+0,cbebff+47,a1dbff+100;Blue+3D+%2313 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cbebff+4,f0f9ff+48,f0f9ff+63,f0f9ff+83 */
+    background: #cbebff; /* Old browsers */
+    border-radius: 15px;
+    background: -moz-linear-gradient(top,  #cbebff 4%, #f0f9ff 48%, #f0f9ff 63%, #f0f9ff 83%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(4%,#cbebff), color-stop(48%,#f0f9ff), color-stop(63%,#f0f9ff), color-stop(83%,#f0f9ff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #cbebff 4%,#f0f9ff 48%,#f0f9ff 63%,#f0f9ff 83%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #cbebff 4%,#f0f9ff 48%,#f0f9ff 63%,#f0f9ff 83%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #cbebff 4%,#f0f9ff 48%,#f0f9ff 63%,#f0f9ff 83%); /* IE10+ */
+    background: linear-gradient(to bottom,  #cbebff 4%,#f0f9ff 48%,#f0f9ff 63%,#f0f9ff 83%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cbebff', endColorstr='#f0f9ff',GradientType=0 ); /* IE6-9 */
+
+
+}
+
+#wellmargin{
+    margin-top: 25px;
+}
+
+.form-actions{
+    float: right;
+}
+

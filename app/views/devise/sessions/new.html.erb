@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row" , id="signin" , xmlns="http://www.w3.org/1999/html">
     <div class="col-xs-6 col-md-4">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "well"}) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "well", id: "wellmargin"}) do |f| %>
 
           <fieldset>
             <legend>Log in</legend>
@@ -14,14 +14,15 @@
           <% end -%>
 
           <div class="actions">
-            <%= f.button :submit, "Log in" %>
+            <%= f.button :submit, "Log in", class: 'btn-info hvr-glow' %>
           </div>
           </fieldset>
+          <div style="margin-top: 10px">
+            <%= link_to "Forgot your password?", new_user_password_path %>
+          </div>
         <% end %>
-
-        <%= render "devise/shared/links" %>
     </div>
   <div class="col-xs-6 col-md-8">
-    <h2>Signing in is easy and secure :)</h2>
+    <%= image_tag("yoomolvi.png", width: '400', height: '600', alt: 'Yoo Molvi', class: "hvr-buzz-out") %>
   </div>
 </div>
